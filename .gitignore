@@ -1,0 +1,41 @@
+node_modules/
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# Test coverage
+coverage
+
+# n8n
+n8n/credentials/*
+!n8n/credentials/.gitkeep
+n8n/exports/*
+!n8n/exports/.gitkeep
+n8n/workflows/*
+!n8n/workflows/.gitkeep
+
+# LLM
+CLAUDE.md
+.continue/
+.claude/
+
+# Docker
+docker/.env
+.env
+
+
+ios
+android
+
+# macOS
+.DS_Store
+
+# Temporary files created by Metro to check the health of the file watcher
+.metro-health-check*
