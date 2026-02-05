@@ -1,18 +1,101 @@
-import { Text, View } from 'react-native';
-import { Button } from '../components/ui/Button';
+import { useState } from 'react';
+import { View, ScrollView } from 'react-native';
+import { useResponsive } from '../hooks/useResponsive';
+import { Header } from '../components/layout/Header';
+import { IconButton } from '../components/ui/IconButton';
+import { AmbientBlobs, HeroImage, HeroContent } from '../features/home';
+import { SettingsModal, SettingsState } from '../features/settings';
+import { ProfileModal } from '../features/profile';
+import { RulesModal } from '../features/rules';
 
 export const HomeScreen = () => {
-  const handlePress = () => {
-    console.log('Button pressed!');
+  const { isTablet } = useResponsive();
+
+  // Modals state
+  const [settingsVisible, setSettingsVisible] = useState(false);
+  const [profileVisible, setProfileVisible] = useState(false);
+  const [rulesVisible, setRulesVisible] = useState(false);
+
+  // Settings state
+  const [settings, setSettings] = useState<SettingsState>({
+    pseudo: 'Lucas',
+    notifications: true,
+    sound: true,
+    darkMode: true,
+    vibrations: true,
+  });
+
+  // Auth state
+  const [isConnected, setIsConnected] = useState(false);
+
+  const handleCreateGame = () => {
+    console.log('Create game');
+  };
+
+  const handleJoinGame = () => {
+    console.log('Join game');
   };
 
   return (
-    <View className="flex-1 items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600">
-      <View className="mx-4 rounded-2xl bg-white p-8 shadow-xl">
-        <Text className="mb-2 text-center text-4xl font-bold text-gray-900">Game Social</Text>
-        <Text className="mb-6 text-center text-lg text-gray-600">Connecte-toi avec tes amis</Text>
-        <Button title="Commencer" onPress={handlePress} variant="primary" />
-      </View>
+    <View className="flex-1 bg-background">
+      {/* Ambient Blobs */}
+      <AmbientBlobs />
+
+      {/* Header */}
+      <Header
+        onSettingsPress={() => setSettingsVisible(true)}
+        onProfilePress={() => setProfileVisible(true)}
+      />
+
+      {/* Main Content */}
+      <ScrollView className="flex-1" contentContainerClassName="flex-grow">
+        <View
+          className={`flex-1 px-4 py-6 md:px-8 md:py-12 ${
+            isTablet ? 'flex-row items-center justify-center gap-12' : ''
+          }`}>
+          {/* Hero Image - First on mobile */}
+          {!isTablet && <HeroImage isTablet={false} />}
+
+          {/* Content */}
+          <HeroContent
+            isTablet={isTablet}
+            onCreateGame={handleCreateGame}
+            onJoinGame={handleJoinGame}
+          />
+
+          {/* Hero Image - Right on tablet */}
+          {isTablet && <HeroImage isTablet />}
+        </View>
+      </ScrollView>
+
+      {/* Helper Button */}
+      <IconButton
+        icon="help-circle"
+        onPress={() => setRulesVisible(true)}
+        variant="primary"
+        size="lg"
+        accessibilityLabel="Comment jouer"
+        className="absolute bottom-7 right-7 shadow-lg shadow-terracotta-300"
+      />
+
+      {/* Settings Modal */}
+      <SettingsModal
+        visible={settingsVisible}
+        onClose={() => setSettingsVisible(false)}
+        settings={settings}
+        onSettingsChange={setSettings}
+      />
+
+      {/* Profile Modal */}
+      <ProfileModal
+        visible={profileVisible}
+        onClose={() => setProfileVisible(false)}
+        isConnected={isConnected}
+        onToggleConnect={() => setIsConnected(!isConnected)}
+      />
+
+      {/* Rules Modal */}
+      <RulesModal visible={rulesVisible} onClose={() => setRulesVisible(false)} />
     </View>
   );
 };
