@@ -33,14 +33,15 @@ export const Modal = ({ visible, onClose, title, children, footer }: ModalProps)
 
   useEffect(() => {
     if (visible) {
-      backdropOpacity.value = withTiming(1, { duration: 200 });
+      backdropOpacity.value = withTiming(1, { duration: 180 });
       translateY.value = withSpring(0, {
-        damping: 20,
-        stiffness: 300,
+        damping: 28,
+        stiffness: 180,
+        mass: 0.8,
       });
     } else {
-      backdropOpacity.value = withTiming(0, { duration: 150 });
-      translateY.value = withTiming(SCREEN_HEIGHT, { duration: 200 });
+      backdropOpacity.value = withTiming(0, { duration: 120 });
+      translateY.value = withTiming(SCREEN_HEIGHT, { duration: 180 });
     }
   }, [visible, backdropOpacity, translateY]);
 
@@ -53,8 +54,8 @@ export const Modal = ({ visible, onClose, title, children, footer }: ModalProps)
   }));
 
   const handleClose = () => {
-    backdropOpacity.value = withTiming(0, { duration: 150 });
-    translateY.value = withTiming(SCREEN_HEIGHT, { duration: 200 }, () => {
+    backdropOpacity.value = withTiming(0, { duration: 120 });
+    translateY.value = withTiming(SCREEN_HEIGHT, { duration: 180 }, () => {
       runOnJS(onClose)();
     });
   };

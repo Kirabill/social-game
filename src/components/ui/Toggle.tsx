@@ -29,8 +29,9 @@ export const Toggle = ({ label, icon, value, onValueChange, disabled = false }: 
 
   useEffect(() => {
     progress.value = withSpring(value ? 1 : 0, {
-      damping: 15,
-      stiffness: 200,
+      damping: 22,
+      stiffness: 140,
+      mass: 0.6,
     });
   }, [value, progress]);
 
@@ -44,14 +45,7 @@ export const Toggle = ({ label, icon, value, onValueChange, disabled = false }: 
   });
 
   const thumbAnimatedStyle = useAnimatedStyle(() => ({
-    transform: [
-      {
-        translateX: withSpring(progress.value * THUMB_TRAVEL, {
-          damping: 15,
-          stiffness: 200,
-        }),
-      },
-    ],
+    transform: [{ translateX: progress.value * THUMB_TRAVEL }],
   }));
 
   const handlePress = () => {
