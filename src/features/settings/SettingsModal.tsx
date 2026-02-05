@@ -60,30 +60,32 @@ export const SettingsModal = ({
         </View>
       </View>
 
-      <Toggle
-        icon="bell"
-        label="Notifications"
-        value={settings.notifications}
-        onValueChange={(v) => handleChange('notifications', v)}
-      />
-      <Toggle
-        icon="volume-2"
-        label="Son"
-        value={settings.sound}
-        onValueChange={(v) => handleChange('sound', v)}
-      />
-      <Toggle
-        icon="moon"
-        label="Mode sombre"
-        value={settings.darkMode}
-        onValueChange={(v) => handleChange('darkMode', v)}
-      />
-      <Toggle
-        icon="smartphone"
-        label="Vibrations"
-        value={settings.vibrations}
-        onValueChange={(v) => handleChange('vibrations', v)}
-      />
+      <View className="pb-2">
+        <Toggle
+          icon="bell"
+          label="Notifications"
+          value={settings.notifications}
+          onValueChange={(v) => handleChange('notifications', v)}
+        />
+        <Toggle
+          icon="volume-2"
+          label="Son"
+          value={settings.sound}
+          onValueChange={(v) => handleChange('sound', v)}
+        />
+        <Toggle
+          icon="moon"
+          label="Mode sombre"
+          value={settings.darkMode}
+          onValueChange={(v) => handleChange('darkMode', v)}
+        />
+        <Toggle
+          icon="smartphone"
+          label="Vibrations"
+          value={settings.vibrations}
+          onValueChange={(v) => handleChange('vibrations', v)}
+        />
+      </View>
     </Modal>
   );
 };
