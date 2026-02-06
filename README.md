@@ -8,10 +8,13 @@
 [![React Native](https://img.shields.io/badge/React%20Native-0.7x-61DAFB?style=for-the-badge&logo=react)](https://reactnative.dev/)
 [![NativeWind](https://img.shields.io/badge/NativeWind-4.1-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=61DAFB)](https://www.nativewind.dev/)
 
-[![CI](https://github.com/PierreMaze/tradimedika/actions/workflows/ci.yml/badge.svg)](https://github.com/PierreMaze/tradimedika/actions/workflows/ci.yml)
-[![Deploy](https://github.com/PierreMaze/tradimedika/actions/workflows/deploy.yml/badge.svg)](https://github.com/PierreMaze/tradimedika/actions/workflows/deploy.yml)
+[![CI](https://github.com/Kirabill/social-game/actions/workflows/ci.yml/badge.svg)](https://github.com/Kirabill/social-game/actions/workflows/ci.yml)
 
 **A social, in-person, asynchronous mobile game built with Expo and React Native**
+
+[🐛 **Signaler un bug**](https://tally.so/r/) • [💬 **Discuter**](https://github.com/Kirabill/social-game/)
+
+[![social-game](<https://img.shields.io/badge/socialgame-Bêta(0.2.0)-b55447?style=for-the-badge&logo=react&logoColor=b55447>)](https://github.com/Kirabill/social-game/)
 
 </div>
 

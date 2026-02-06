@@ -1,20 +1,26 @@
 import { View } from 'react-native';
 import { Text } from '../../components/ui/primitives/Text';
-import { Badge } from '../../components/ui/Badge';
+import { PlayersOnlineBadge } from '../../components/ui/PlayersOnlineBadge';
 import { Stat } from './Stat';
 import { ActionButton } from './ActionButton';
 
 type HeroContentProps = {
   isTablet?: boolean;
+  onlinePlayersCount?: number;
   onCreateGame: () => void;
   onJoinGame: () => void;
 };
 
-export const HeroContent = ({ isTablet = false, onCreateGame, onJoinGame }: HeroContentProps) => {
+export const HeroContent = ({
+  isTablet = false,
+  onlinePlayersCount = 0,
+  onCreateGame,
+  onJoinGame,
+}: HeroContentProps) => {
   return (
     <View className={`${isTablet ? 'max-w-[420px]' : ''}`}>
       {/* Live Badge */}
-      <Badge label="4 joueurs en ligne" variant="accent" dot className="mb-4" />
+      <PlayersOnlineBadge count={onlinePlayersCount} className="mb-4" />
 
       {/* Title */}
       <Text variant="h1" color="default" className="mb-2.5 text-3xl leading-tight md:text-4xl">

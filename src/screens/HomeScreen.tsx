@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { View, ScrollView } from 'react-native';
 import { useResponsive } from '../hooks/useResponsive';
 import { Header } from '../components/layout/Header';
-import { IconButton } from '../components/ui/IconButton';
+import { HelpButton } from '../components/ui/HelpButton';
 import { AmbientBlobs, HeroImage, HeroContent } from '../features/home';
 import { SettingsModal, SettingsState } from '../features/settings';
 import { ProfileModal } from '../features/profile';
@@ -69,14 +69,7 @@ export const HomeScreen = () => {
       </ScrollView>
 
       {/* Helper Button */}
-      <IconButton
-        icon="help-circle"
-        onPress={() => setRulesVisible(true)}
-        variant="primary"
-        size="lg"
-        accessibilityLabel="Comment jouer"
-        className="absolute bottom-7 right-7 shadow-lg shadow-terracotta-300"
-      />
+      <HelpButton onPress={() => setRulesVisible(true)} className="absolute bottom-7 right-7" />
 
       {/* Settings Modal */}
       <SettingsModal

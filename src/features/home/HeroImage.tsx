@@ -8,7 +8,7 @@ type HeroImageProps = {
 export const HeroImage = ({ isTablet = false }: HeroImageProps) => {
   return (
     <View
-      className={`relative mb-8 ${isTablet ? 'w-[30%] min-w-[280px] max-w-[380px]' : 'self-center'}`}>
+      className={`relative mb-8 ${isTablet ? 'w-[30%] min-w-[280px] max-w-[380px]' : 'w-full max-w-[320px] self-center'}`}>
       {/* Glow effect */}
       <View className="absolute -inset-8 rounded-[32px] bg-terracotta-50 blur-2xl" />
 
