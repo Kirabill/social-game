@@ -22,7 +22,6 @@ n8n/workflows/*
 !n8n/workflows/.gitkeep
 
 # LLM
-CLAUDE.md
 .continue/
 .claude/
 
