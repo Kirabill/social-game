@@ -1,4 +1,4 @@
-import { View, Image } from 'react-native';
+import { Image, View } from 'react-native';
 import { Text } from '../../components/ui/primitives/Text';
 
 type HeroImageProps = {
@@ -10,7 +10,7 @@ export const HeroImage = ({ isTablet = false }: HeroImageProps) => {
     <View
       className={`relative mb-8 ${isTablet ? 'w-[30%] min-w-[280px] max-w-[380px]' : 'w-full max-w-[320px] self-center'}`}>
       {/* Glow effect */}
-      <View className="absolute -inset-8 rounded-[32px] bg-terracotta-50 blur-2xl" />
+      <View className="hidden md:absolute md:-inset-8 md:rounded-[32px] md:bg-terracotta-50 md:blur-2xl" />
 
       {/* Image Frame */}
       <View className="relative overflow-hidden rounded-3xl border border-cream-100 shadow-2xl">
